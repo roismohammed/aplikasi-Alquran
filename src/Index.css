@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@1,200&family=Bebas+Neue&family=Gloock&family=Inconsolata&family=Labrada:wght@100;200&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital@1&display=swap');
+
+.container-nama {
+    margin-left: 10px;
+}
+
+.nama-latin {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Gloock', serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Labrada', serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.arti {
+    position: relative;
+    top: -6px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    color: rgb(116, 111, 111);
+}
