@@ -43,7 +43,7 @@ class Index extends React.Component {
 
                         <button
                             style={{
-                                backgroundColor: "#C937BD",
+                                backgroundColor: "#B576FE",
                                 border: "none",
                                 width: "130px",
                                 padding: "6px",
@@ -58,17 +58,17 @@ class Index extends React.Component {
                     {/* Daftar surat al-Quran */}
                     <div>
                         {this.state.quran.map(data => (
-                            <Link key={data.nomor} className="container nav-link mt-3" >
-                                <div className="border-bottom list-group-center container hover d-flex align-items-center justify-content-between container lef p-0">
+                            <Link key={data.nomor} to={'/detail/' + data.nomor} className="tabler-hover container nav-link mt-3" >
+                                <div className="border-bottom list-group-center container d-flex align-items-center justify-content-between container lef p-0">
                                     <div style={{ color: 'black' }} className="d-flex" >
                                         <h4 className=" mb-0 mt-1">{data.nomor} </h4>
                                         <div className="container-nama">
-                                            <h3 className="mb-0 nala-latin ">{data.namaLatin}</h3>
+                                            <h3 className="mb-0 nama-latin ">{data.namaLatin}</h3>
                                             <p className="arti">{data.arti}. ayat {data.jumlahAyat}</p>
                                         </div>
                                     </div>
                                     <div style={{ color: 'black' }}>
-                                        <h3> {data.nama}</h3>
+                                        <h3 className="nama-arab"> {data.nama}</h3>
                                     </div>
 
                                 </div>

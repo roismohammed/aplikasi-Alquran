@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+.nama-arab-detail{
+    font-family: 'Amiri Quran', serif;
+    font-size: 20px;
+    color: #B576FE;
+    text-align: right;
+    margin-top: -20px;
+}
