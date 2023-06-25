@@ -21,6 +21,19 @@ class Index extends React.Component {
                 console.error("gagal", error);
             });
     }
+    handleSearch = (e) => {
+        if(e.target.value != '') {
+            let quranDiFilter = this.state.quran.filter(quran => {
+                return quran.namaLatin.toLowerCase().indexOf(e.target.value.toLowerCase()) != -1 
+            })
+            this.setState({
+                quran:quranDiFilter
+            })
+            
+        }else(
+            this.componentDidMount()
+        )
+    }
 
     render() {
         return (
@@ -39,6 +52,7 @@ class Index extends React.Component {
                                 placeContent: "center"
                             }}
                             placeholder="Cari Surat"
+                            onChange={this.handleSearch}
                         />
 
                         <button

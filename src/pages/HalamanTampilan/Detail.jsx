@@ -21,6 +21,8 @@ export default function Detail() {
   }, [nomor]);
   return (
     <div>
+      {/* navbar bagian detial */}
+   
       <Guest>
         <Link to={'/'}>kembali</Link>
         <div className="">
