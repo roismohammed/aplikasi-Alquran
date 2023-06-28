@@ -10,7 +10,6 @@ export default function Navbar() {
                         <a className="navbar-brand" href="#">
                             Al-Quran
                         </a>
-                      
                     </div>
                 </nav>
             </div>

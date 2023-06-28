@@ -1,6 +1,5 @@
 import React from "react";
 import Guest from "./layouts/Guest";
-import { RiBookmarkFill } from "react-icons/ri";
 import axios from "axios";
 import './Index.css'
 import { Link } from "react-router-dom";
@@ -57,20 +56,23 @@ class Index extends React.Component {
                     </div>
 
                     {/* bagian sidebar */}
-                    <div className="pt-3">
-                        <div className="p-3 nav justify-content-between">
-                            <div className="col-sm-8">
-                                <h2>Al-quran</h2>
-                            </div>
-                            <div className="col-sm-4">
-                                <img className="mt-0 mx-5" src="./quran2.png" alt="" />
+                    <div className="pt-3 ">
+                        <div className="p-3 nav ">
+                            <div className="row">
+                                <div className="col-sm-8 text-white">
+                                    <h5>Al-Quran</h5>
+                                    <h2 className="mt-5">Al-Fatihah</h2>
+                                </div>
+                                <div className="col-sm-4">
+                                    <img className="mt-0  " src="./quran2.png" alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                     {/* Daftar surat al-Quran */}
                     <div>
                         {this.state.quran.map(data => (
-                            <Link key={data.nomor} to={'/detail/' + data.nomor} className="tabler-hover container nav-link mt-3" >
+                            <Link key={data.nomor} to={'/detail/' + data.nomor} className="tabler-hover container nav-link mt-4" >
                                 <div className="border-bottom list-group-center container d-flex align-items-center justify-content-between container lef p-0">
                                     <div style={{ color: 'black' }} className="d-flex" >
                                         <div className="rhombus-border ">

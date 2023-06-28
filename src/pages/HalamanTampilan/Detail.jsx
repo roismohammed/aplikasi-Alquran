@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import Guest from "../../layouts/Guest";
 import './Detail.css'
+import { RiArrowLeftSLine } from "react-icons/ri";
 
 export default function Detail() {
   const { nomor } = useParams();
@@ -10,8 +10,9 @@ export default function Detail() {
 
   useEffect(() => {
     axios
-      .get('https://equran.id/api/v2/surat/' + nomor)
-      .then((res) => {
+    .get('https://equran.id/api/v2/surat/' + nomor)
+    .then((res) => {
+        console.log(res.data.data);
         setDetail(res.data.data.ayat);
       })
       .catch((err) => {
@@ -19,24 +20,55 @@ export default function Detail() {
       });
   }, [nomor]);
   return (
-    <div>
+    <div className="p-3">
       {/* navbar bagian detial */}
-   
+      <div className="mx-3 fixed-top">
+        <nav className="navbar navbar-expand-lg bg-light">
+          <div className="container-fluid d-flex">
+            <Link to={'/'} className="nav-link" >< RiArrowLeftSLine className="kembali" /></Link>
+            <p className="navbar-brand text-center">
+              Al-Quran
+            </p>
+          </div>
+        </nav>
+      </div>
+
+      {/* bagian sidebar */}
+
+      <div className="pt-3 mt-5">
+        <div className="p-3 nav-detail shadow-sm ">
+          <div className="row">
+            <div className="col-sm-8 text-white">
+              <h5>Al-Quran</h5>
+              {detail && detail.map((ayat) => {
+                return(
+                  <div key={ayat.nomorAyat}>
+                    <h2 className="mt-5">{ayat.teksLatin}</h2>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="col-sm-4">
+              <img className="mt-0  " src="./quran2.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <>
-        <Link to={'/'}>kembali</Link>
-        <div className="">
+        <div>
           <div className="row">
             {detail && detail.map((ayat) => {
               return (
                 <div key={ayat.nomorAyat} className="pt-2">
-                  <div className="card rounded-3 shadow-sm pt-0" style={{ borderLeft: '4px solid #B576FE' }}>
+                  <div className="card rounded-3 shadow-sm pt-0">
                     <div className="card-body">
-                      <h5 className="card-title">{ayat.nomorAyat}</h5>
+                      <h5 className="card-title rhombus-border-detail">{ayat.nomorAyat}</h5>
                       <p className="card-text nama-arab-detail ">
                         {ayat.teksArab}
                       </p>
                       <p className="card-text pt-2">{ayat.teksLatin}</p>
-                      <p style={{ color: '#B576FE' }}>{ayat.teksIndonesia}</p>
+                      <p style={{ color: '#219F6A' }}>{ayat.teksIndonesia}</p>
                     </div>
                   </div>
                 </div>
