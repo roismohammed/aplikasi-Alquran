@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
 
+.box{
+    margin-top: 50px;
+}
 .nav{
     height: 150px;
     background-color: #219F6A;
@@ -7,8 +10,9 @@
 }
 
 .nav img{
-    height: 100px;
-    opacity: 50%;
+    height: 130px;
+    opacity: 40%;
+    margin-top: 0px;
 }
 
 .container-nama {

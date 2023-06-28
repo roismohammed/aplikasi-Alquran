@@ -4,7 +4,7 @@ import './Navbar.css';
 export default function Navbar() {
     return (
         <Fragment>
-            <div  className="mx-3">
+            <div  className="mx-3 fixed-top">
                 <nav className="navbar navbar-expand-lg bg-light">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="#">

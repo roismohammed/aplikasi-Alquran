@@ -38,7 +38,7 @@ class Index extends React.Component {
     render() {
         return (
             <Guest>
-                <div className="p-3">
+                <div className="p-3 box">
                     {/* Bagian pencarian */}
                     <div>
                         <input
@@ -58,12 +58,12 @@ class Index extends React.Component {
 
                     {/* bagian sidebar */}
                     <div className="pt-3">
-                        <div className="nav">
-                            <div className="col-sm-6">
-                                <h2>as</h2>
+                        <div className="p-3 nav justify-content-between">
+                            <div className="col-sm-8">
+                                <h2>Al-quran</h2>
                             </div>
-                            <div className="col-sm-6">
-                                <img className="mt-5 mx-5" src="./quran2.png" alt="" />
+                            <div className="col-sm-4">
+                                <img className="mt-0 mx-5" src="./quran2.png" alt="" />
                             </div>
                         </div>
                     </div>
