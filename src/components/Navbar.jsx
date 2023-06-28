@@ -1,15 +1,19 @@
 import { Fragment } from "react";
+import './Navbar.css';
 
 export default function Navbar() {
     return (
         <Fragment>
-            <div className="container p-2">
-                <div className="nav" style={{ background: '#B576FE', height: '130px', borderRadius: '10px' }}>
-                    <div className="p-3 text-white">
-                        <h1 className="border-bottom border-white">Al-Quran </h1>
+            <div  className="mx-3">
+                <nav className="navbar navbar-expand-lg bg-light">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="#">
+                            Al-Quran
+                        </a>
+                      
                     </div>
-                </div>
+                </nav>
             </div>
         </Fragment>
-    )
+    );
 }

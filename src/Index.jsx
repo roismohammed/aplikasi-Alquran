@@ -22,15 +22,15 @@ class Index extends React.Component {
             });
     }
     handleSearch = (e) => {
-        if(e.target.value != '') {
+        if (e.target.value != '') {
             let quranDiFilter = this.state.quran.filter(quran => {
-                return quran.namaLatin.toLowerCase().indexOf(e.target.value.toLowerCase()) != -1 
+                return quran.namaLatin.toLowerCase().indexOf(e.target.value.toLowerCase()) != -1
             })
             this.setState({
-                quran:quranDiFilter
+                quran: quranDiFilter
             })
-            
-        }else(
+
+        } else (
             this.componentDidMount()
         )
     }
@@ -38,36 +38,34 @@ class Index extends React.Component {
     render() {
         return (
             <Guest>
-                <div className="">
+                <div className="p-3">
                     {/* Bagian pencarian */}
                     <div>
                         <input
+                            className="form-control"
                             type="text"
                             style={{
-                                border: "1px solid #C937BD",
-                                width: "240px",
+                                border: "1px solid #219F6A",
                                 padding: "5px",
-                                borderRadius: "15px 1px 1px 15px",
+                                borderRadius: "15px 15px 15px 15px",
                                 outline: "none",
                                 placeContent: "center"
                             }}
                             placeholder="Cari Surat"
                             onChange={this.handleSearch}
                         />
+                    </div>
 
-                        <button
-                            style={{
-                                backgroundColor: "#B576FE",
-                                border: "none",
-                                width: "130px",
-                                padding: "6px",
-                                marginLeft: "3px",
-                                color: "white",
-                                borderRadius: "1px 15px 15px 1px"
-                            }}
-                        >
-                            <RiBookmarkFill style={{ position: "relative", top: "-1px", left: "-5px" }} /> Bookmark
-                        </button>
+                    {/* bagian sidebar */}
+                    <div className="pt-3">
+                        <div className="nav">
+                            <div className="col-sm-6">
+                                <h2>as</h2>
+                            </div>
+                            <div className="col-sm-6">
+                                <img className="mt-5 mx-5" src="./quran2.png" alt="" />
+                            </div>
+                        </div>
                     </div>
                     {/* Daftar surat al-Quran */}
                     <div>
@@ -75,9 +73,11 @@ class Index extends React.Component {
                             <Link key={data.nomor} to={'/detail/' + data.nomor} className="tabler-hover container nav-link mt-3" >
                                 <div className="border-bottom list-group-center container d-flex align-items-center justify-content-between container lef p-0">
                                     <div style={{ color: 'black' }} className="d-flex" >
-                                        <h4 className=" mb-0 mt-1">{data.nomor} </h4>
+                                        <div className="rhombus-border ">
+                                            <h5 className=" mb-0 mt-1 ">{data.nomor} </h5>
+                                        </div>
                                         <div className="container-nama">
-                                            <h3 className="mb-0 nama-latin ">{data.namaLatin}</h3>
+                                            <h4 className="mb-0 nama-latin ">{data.namaLatin}</h4>
                                             <p className="arti">{data.arti}. ayat {data.jumlahAyat}</p>
                                         </div>
                                     </div>

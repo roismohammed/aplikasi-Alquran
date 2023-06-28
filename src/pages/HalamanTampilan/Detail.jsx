@@ -12,7 +12,6 @@ export default function Detail() {
     axios
       .get('https://equran.id/api/v2/surat/' + nomor)
       .then((res) => {
-        console.log(res.data.data.ayat);
         setDetail(res.data.data.ayat);
       })
       .catch((err) => {
@@ -23,7 +22,7 @@ export default function Detail() {
     <div>
       {/* navbar bagian detial */}
    
-      <Guest>
+      <>
         <Link to={'/'}>kembali</Link>
         <div className="">
           <div className="row">
@@ -46,7 +45,7 @@ export default function Detail() {
             })}
           </div>
         </div>
-      </Guest>
+      </>
     </div>
   );
 }
