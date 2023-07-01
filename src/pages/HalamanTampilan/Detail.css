@@ -10,6 +10,12 @@
 .kembali{
     height: 25px;
     width: 25px;
+    transition: 0.3s;
+}
+
+.kembali:hover{
+    background-color: #219F6A;
+    transition: 0.3s ;
 }
 
 .nav-detail{

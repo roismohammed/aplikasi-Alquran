@@ -8,11 +8,11 @@ export default function Detail() {
   const { nomor } = useParams();
   const [detail, setDetail] = useState([]);
 
+
   useEffect(() => {
     axios
-    .get('https://equran.id/api/v2/surat/' + nomor)
-    .then((res) => {
-        console.log(res.data.data);
+      .get('https://equran.id/api/v2/surat/' + nomor)
+      .then((res) => {
         setDetail(res.data.data.ayat);
       })
       .catch((err) => {
@@ -26,7 +26,7 @@ export default function Detail() {
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid d-flex">
             <Link to={'/'} className="nav-link" >< RiArrowLeftSLine className="kembali" /></Link>
-            <p className="navbar-brand text-center">
+            <p className="navbar-brand mx-auto">
               Al-Quran
             </p>
           </div>
@@ -40,13 +40,11 @@ export default function Detail() {
           <div className="row">
             <div className="col-sm-8 text-white">
               <h5>Al-Quran</h5>
-              {detail && detail.map((ayat) => {
-                return(
-                  <div key={ayat.nomorAyat}>
-                    <h2 className="mt-5">{ayat.teksLatin}</h2>
-                  </div>
-                )
-              })}
+              {detail.ayat.map((ayat) => (
+                <div key={ayat.nomor}>
+                  { ayat.namaLatin}
+                </div>
+              ))}
             </div>
             <div className="col-sm-4">
               <img className="mt-0  " src="./quran2.png" alt="" />
