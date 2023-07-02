@@ -22,6 +22,8 @@
 .kembali:hover{
     background-color: #219F6A;
     transition: 0.3s ;
+    border-radius: 5px;
+    box-shadow: ;
 }
 
 .nav-detail{
