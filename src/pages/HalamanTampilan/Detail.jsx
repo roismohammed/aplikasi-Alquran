@@ -11,9 +11,10 @@ export default function Detail() {
 
   useEffect(() => {
     axios
-      .get('https://equran.id/api/v2/surat/' + nomor)
-      .then((res) => {
-        setDetail(res.data.data.ayat);
+    .get('https://equran.id/api/v2/surat/' + nomor)
+    .then((res) => {
+      setDetail(res.data.data);
+      console.log(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -35,16 +36,16 @@ export default function Detail() {
 
       {/* bagian sidebar */}
 
-      <div className="pt-3 mt-5">
+      <div className="pt-3 mt-5 ">
         <div className="p-3 nav-detail shadow-sm ">
-          <div className="row">
-            <div className="col-sm-8 text-white">
-              <h5>Al-Quran</h5>
-              {detail.ayat.map((ayat) => (
-                <div key={ayat.nomor}>
-                  { ayat.namaLatin}
-                </div>
-              ))}
+          <div className="row ">
+            <div className="col-sm-8 text-white text-center sidebar p-2">
+              <h2>{detail.namaLatin}</h2>
+              <p>{detail.arti}</p>
+              <p className="border-arti"></p>
+              <p className="mt-3"> {detail.tempatTurun} - {detail.jumlahAyat} Ayat</p>
+
+              <h2 className="nama-arab-sidebar">ِبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم</h2>
             </div>
             <div className="col-sm-4">
               <img className="mt-0  " src="./quran2.png" alt="" />
@@ -53,10 +54,11 @@ export default function Detail() {
         </div>
       </div>
 
+
       <>
         <div>
           <div className="row">
-            {detail && detail.map((ayat) => {
+            {/* {detail && detail.map((ayat) => {
               return (
                 <div key={ayat.nomorAyat} className="pt-2">
                   <div className="card rounded-3 shadow-sm pt-0">
@@ -72,7 +74,7 @@ export default function Detail() {
                 </div>
 
               );
-            })}
+            })} */}
           </div>
         </div>
       </>

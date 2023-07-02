@@ -3,6 +3,7 @@ import Guest from "./layouts/Guest";
 import axios from "axios";
 import './Index.css'
 import { Link } from "react-router-dom";
+import {  RiBookOpenFill } from "react-icons/ri";
 class Index extends React.Component {
     state = {
         quran: []
@@ -60,7 +61,7 @@ class Index extends React.Component {
                         <div className="p-3 nav ">
                             <div className="row">
                                 <div className="col-sm-8 text-white">
-                                    <h5>Al-Quran</h5>
+                                    <p><RiBookOpenFill className="last-icon"/> Last Read</p>
                                     <h2 className="mt-5">Al-Fatihah</h2>
                                 </div>
                                 <div className="col-sm-4">

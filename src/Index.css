@@ -18,6 +18,10 @@
     top: -90px;
 }
 
+.last-icon{
+    position: relative;
+    top: -1px;
+}
 .container-nama {
     margin-left: 10px;
 }
