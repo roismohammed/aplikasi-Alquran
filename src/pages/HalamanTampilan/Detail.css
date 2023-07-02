@@ -25,9 +25,9 @@
 }
 
 .nav-detail{
-    height: 220px;
+    height: 230px;
     background-color: #219F6A;
-    border-radius: 10px;
+    border-radius: 15px;
     justify-content: space-between;
     /* box-shadow: 2px 2px 5px 3px gainsboro; */
 }
