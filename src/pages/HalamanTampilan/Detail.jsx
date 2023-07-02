@@ -7,19 +7,20 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 export default function Detail() {
   const { nomor } = useParams();
   const [detail, setDetail] = useState([]);
+  const [ayat , setAyat] = useState([])
 
-
-  useEffect(() => {
-    axios
-    .get('https://equran.id/api/v2/surat/' + nomor)
-    .then((res) => {
-      setDetail(res.data.data);
-      console.log(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [nomor]);
+    useEffect(() => {
+      axios
+        .get('https://equran.id/api/v2/surat/' + nomor)
+        .then((res) => {
+          setDetail(res.data.data);
+          setAyat(res.data.data.ayat)
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, [nomor]);
   return (
     <div className="p-3">
       {/* navbar bagian detial */}
@@ -58,7 +59,7 @@ export default function Detail() {
       <>
         <div>
           <div className="row">
-            {/* {detail && detail.map((ayat) => {
+            {ayat && ayat.map((ayat) => {
               return (
                 <div key={ayat.nomorAyat} className="pt-2">
                   <div className="card rounded-3 shadow-sm pt-0">
@@ -74,7 +75,7 @@ export default function Detail() {
                 </div>
 
               );
-            })} */}
+            })}
           </div>
         </div>
       </>
