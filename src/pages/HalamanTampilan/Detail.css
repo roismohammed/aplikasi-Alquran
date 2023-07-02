@@ -23,7 +23,6 @@
     background-color: #219F6A;
     transition: 0.3s ;
     border-radius: 5px;
-    box-shadow: ;
 }
 
 .nav-detail{
@@ -55,6 +54,18 @@
     border-bottom: 1px solid white;
     position: relative;
     top: 5px;
+}
+
+.tKembali{
+    background-color: #219F6A;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+
+.tKembali .ikon{
+    width: 23px;
+    height: 23px;
 }
 
 

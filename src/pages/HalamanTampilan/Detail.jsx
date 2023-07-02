@@ -3,26 +3,44 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import './Detail.css'
 import { RiArrowLeftSLine } from "react-icons/ri";
+import { TbArrowBigUpLineFilled } from "react-icons/tb";
+// import logoQuran from '../quran2.png'
 
 export default function Detail() {
   const { nomor } = useParams();
   const [detail, setDetail] = useState([]);
-  const [ayat , setAyat] = useState([])
+  const [ayat, setAyat] = useState([])
+  const [showIcon, setShowIcon] = useState(false);
 
-    useEffect(() => {
-      axios
-        .get('https://equran.id/api/v2/surat/' + nomor)
-        .then((res) => {
-          setDetail(res.data.data);
-          setAyat(res.data.data.ayat)
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }, [nomor]);
+  useEffect(() => {
+    axios
+      .get('https://equran.id/api/v2/surat/' + nomor)
+      .then((res) => {
+        setDetail(res.data.data);
+        setAyat(res.data.data.ayat)
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [nomor]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setShowIcon(true);
+      } else {
+        setShowIcon(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="p-3">
+    <div className="p-3" id="atas">
       {/* navbar bagian detial */}
       <div className="mx-3 fixed-top">
         <nav className="navbar navbar-expand-lg bg-light">
@@ -49,13 +67,13 @@ export default function Detail() {
               <h2 className="nama-arab-sidebar">ِبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم</h2>
             </div>
             <div className="col-sm-4">
-              <img className="mt-0  " src="./quran2.png" alt="" />
+              {/* <img className="mt-0  " src={logo} alt="" /> */}
             </div>
           </div>
         </div>
       </div>
 
-
+      {/* isi  */}
       <>
         <div>
           <div className="row">
@@ -79,6 +97,14 @@ export default function Detail() {
           </div>
         </div>
       </>
+      {/* icon ke atas */}
+      <div className="p-4 d-flex fixed-bottom float-end">
+        {showIcon && (
+          <a href="#atas" className="ms-auto tKembali">
+            <TbArrowBigUpLineFilled className="ikon" />
+          </a>
+        )}
+      </div>
     </div>
   );
 }
