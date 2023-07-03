@@ -4,7 +4,7 @@ import axios from "axios";
 import './Detail.css'
 import { RiArrowLeftSLine } from "react-icons/ri";
 import { TbArrowBigUpLineFilled } from "react-icons/tb";
-// import logoQuran from '../quran2.png'
+import logoQuran from '../../../public/quran2.png'
 
 export default function Detail() {
   const { nomor } = useParams();
@@ -67,7 +67,10 @@ export default function Detail() {
               <h2 className="nama-arab-sidebar">ِبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم</h2>
             </div>
             <div className="col-sm-4">
-              {/* <img className="mt-0  " src={logo} alt="" /> */}
+              <img className="mt-0"
+                src={logoQuran}
+                alt="Logo Quran"
+                style={{ height: '200px', position: 'absolute',top:'85px',left:'55px',opacity:'13%' }} />
             </div>
           </div>
         </div>
