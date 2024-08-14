@@ -70,3 +70,17 @@
     box-sizing: border-box;
   }
   
+
+  .not-allowed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.not-allowed h1 {
+    font-size: 2rem;
+    color: red;
+}

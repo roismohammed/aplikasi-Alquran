@@ -42,10 +42,10 @@ export default function Detail() {
   return (
     <div className="p-3" id="atas">
       {/* navbar bagian detial */}
-      <div className="mx-3 fixed-top">
+      <div className=" fixed-top">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid d-flex">
-            <Link to={'/'} className="nav-link" >< RiArrowLeftSLine className="kembali" /></Link>
+            <Link to={'/'} className="nav-link mx-1" >< RiArrowLeftSLine className="kembali" /></Link>
             <p className="navbar-brand mx-auto">
               Al-Quran
             </p>

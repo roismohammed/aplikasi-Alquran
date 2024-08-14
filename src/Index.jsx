@@ -3,39 +3,57 @@ import Guest from "./layouts/Guest";
 import axios from "axios";
 import './Index.css'
 import { Link } from "react-router-dom";
-import {  RiBookOpenFill } from "react-icons/ri";
+import { RiBookOpenFill } from "react-icons/ri";
+
 class Index extends React.Component {
     state = {
-        quran: []
+        quran: [],
+        isMobile: true // Tambahkan state untuk memeriksa apakah perangkat adalah mobile
     };
 
     componentDidMount() {
-        axios.get("https://equran.id/api/v2/surat")
-            .then((res) => {
-                console.log(res.data.data)
-                this.setState({
-                    quran: res.data.data
+        // Periksa ukuran layar
+        const isMobile = window.innerWidth <= 768;
+        this.setState({ isMobile });
+
+        // Hanya lakukan fetch data jika perangkat adalah mobile
+        if (isMobile) {
+            axios.get("https://equran.id/api/v2/surat")
+                .then((res) => {
+                    console.log(res.data.data)
+                    this.setState({
+                        quran: res.data.data
+                    });
+                })
+                .catch((error) => {
+                    console.error("gagal", error);
                 });
-            })
-            .catch((error) => {
-                console.error("gagal", error);
-            });
+        }
     }
+
     handleSearch = (e) => {
-        if (e.target.value != '') {
+        if (e.target.value !== '') {
             let quranDiFilter = this.state.quran.filter(quran => {
-                return quran.namaLatin.toLowerCase().indexOf(e.target.value.toLowerCase()) != -1
-            })
+                return quran.namaLatin.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
+            });
             this.setState({
                 quran: quranDiFilter
-            })
-
-        } else (
-            this.componentDidMount()
-        )
+            });
+        } else {
+            this.componentDidMount();
+        }
     }
 
     render() {
+        if (!this.state.isMobile) {
+            return (
+                <div className="not-allowed">
+                    <h1>Akses Dibatasi</h1>
+                    <p>Aplikasi ini hanya dapat diakses melalui perangkat seluler.</p>
+                </div>
+            );
+        }
+
         return (
             <Guest>
                 <div className="p-3 box">
@@ -87,7 +105,6 @@ class Index extends React.Component {
                                     <div style={{ color: 'black' }}>
                                         <h3 className="nama-arab"> {data.nama}</h3>
                                     </div>
-
                                 </div>
                             </Link>
                         ))}

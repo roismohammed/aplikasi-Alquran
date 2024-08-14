@@ -4,10 +4,10 @@ import './Navbar.css';
 export default function Navbar() {
     return (
         <Fragment>
-            <div  className="mx-3 fixed-top">
+            <div  className="mx- fixed-top">
                 <nav className="navbar navbar-expand-lg bg-light">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">
+                        <a className="navbar-brand mx-2" href="#">
                             Al-Quran
                         </a>
                     </div>
